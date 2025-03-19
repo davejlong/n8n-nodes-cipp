@@ -1,0 +1,14 @@
+{
+	"node": "n8n-nodes-cipp",
+	"nodeVersion": "0.1",
+	"codexVersion": "1.0",
+	"categories": ["Cybersecurity"],
+	"resources": {
+		"credentialDocumentation": [
+			{ "url": "https://github.com/davejlong/n8n-nodes-cipp"}
+		],
+		"primaryDocumentation": [
+			{ "url": "https://github.com/davejlong/n8n-nodes-cipp" }
+		]
+	}
+}
