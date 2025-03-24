@@ -22,40 +22,20 @@ export const description: INodeProperties[] = [
 		default: 'getAll',
 	},
 	{
-		displayName: 'Tenant ID',
+		displayName: 'Tenant Name or ID',
 		name: 'tenantId',
 		displayOptions: {
 			show: { resource: ['user'], },
 		},
-		type: 'string',
-		// type: 'options',
-		// typeOptions: {
-		// 	loadOptions: {
-		// 		routing: {
-		// 			request: {
-		// 				method: 'GET',
-		// 				url: '/ListTenants',
-		// 			},
-		// 			output: {
-		// 				postReceive: [
-		// 					{
-		// 						type: 'setKeyValue',
-		// 						properties: {
-		// 							name: '={{$responseItem.displayName}}',
-		// 							value: '={{$responseItem.customerId}}',
-		// 						},
-		// 					},
-		// 					{
-		// 						type: 'sort',
-		// 						properties: {
-		// 							key: 'name',
-		// 						},
-		// 					},
-		// 				],
-		// 			},
-		// 		},
-		// 	},
-		// },
+		description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
+		type: 'options',
+		typeOptions: {
+			loadOptionsMethod: 'getTenantOptions',
+			loadOptionsDependsOn: ['includeBlank'],
+			loadOptionsParameters: {
+				includeBlank: false,
+			},
+		},
 		routing: {
 			request: {
 				qs: { tenantfilter: "={{$value}}" }

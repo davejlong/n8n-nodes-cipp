@@ -1,5 +1,7 @@
 import { INodeType, INodeTypeDescription } from "n8n-workflow";
 
+import { getTenantOptions } from "./methods/loadOptions";
+
 import * as tenant from './actions/tenant';
 import * as user from './actions/user';
 
@@ -42,4 +44,10 @@ export class CIPP implements INodeType {
 			...user.description,
 		],
 	};
+
+	methods = {
+		loadOptions: {
+			getTenantOptions,
+		}
+	}
 }
