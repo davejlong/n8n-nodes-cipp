@@ -1,5 +1,7 @@
 import { INodeProperties } from "n8n-workflow";
 
+import { domains } from "./domains";
+
 export const description: INodeProperties[] = [
 	{
 		displayName: 'Operation',
@@ -17,8 +19,17 @@ export const description: INodeProperties[] = [
 				routing: {
 					request: { url: "/ListTenants", },
 				},
-			}
+			},
+			{
+				name: 'Get Domains',
+				value: 'getDomains',
+				action: 'Get domains',
+				routing: {
+					request: { url: "/ListDomains", }
+				},
+			},
 		],
 		default: 'getAll',
-	}
+	},
+	...domains,
 ]

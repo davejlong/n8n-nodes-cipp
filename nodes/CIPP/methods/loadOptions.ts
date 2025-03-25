@@ -8,3 +8,10 @@ export async function getTenantOptions(this: ILoadOptionsFunctions): Promise<INo
 export async function getGDAPRoleOptions(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	return await getLoadOptions.call(this, '/ListGDAPRoles', 'RoleName');
 }
+
+export async function getDomainOptions(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const tenantFilter = this.getCurrentNodeParameter('tenantFilter');
+	const options = await getLoadOptions.call(this, '/ListDomains', 'id', 'id', {tenantFilter: tenantFilter});
+	return options;
+
+}

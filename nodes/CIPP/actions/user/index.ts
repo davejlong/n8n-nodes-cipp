@@ -1,5 +1,7 @@
 import { INodeProperties } from "n8n-workflow";
 
+import { addUser } from './add';
+
 export const description: INodeProperties[] = [
 	{
 		displayName: 'Operation',
@@ -17,6 +19,18 @@ export const description: INodeProperties[] = [
 				routing: {
 					request: { url: "/ListUsers", },
 				},
+			},
+			{
+				name: 'Create',
+				value: 'create',
+				action: 'Create user',
+				routing: {
+					request: {
+						// baseURL: 'https://eomglhueikotny6.m.pipedream.net',
+						url: '/AddUser',
+						method: 'POST'
+					}
+				}
 			}
 		],
 		default: 'getAll',
@@ -25,7 +39,10 @@ export const description: INodeProperties[] = [
 		displayName: 'Tenant Name or ID',
 		name: 'tenantId',
 		displayOptions: {
-			show: { resource: ['user'], },
+			show: {
+				resource: ['user'],
+				operation: ['getAll'],
+			},
 		},
 		description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
 		type: 'options',
@@ -37,10 +54,13 @@ export const description: INodeProperties[] = [
 			},
 		},
 		routing: {
-			request: {
-				qs: { tenantfilter: "={{$value}}" }
+			send: {
+				property: 'tenantFilter',
+				type: 'body',
+				value: "={{$value}}",
 			},
 		},
 		default: '',
-	}
+	},
+	...addUser,
 ]
