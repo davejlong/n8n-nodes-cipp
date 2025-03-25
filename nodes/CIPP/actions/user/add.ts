@@ -38,10 +38,6 @@ export const addUser: INodeProperties[] = [
 		type: 'options',
 		typeOptions: {
 			loadOptionsMethod: 'getTenantOptions',
-			loadOptionsDependsOn: ['includeBlank'],
-			loadOptionsParameters: {
-				includeBlank: false,
-			},
 		},
 		routing: {
 			send: {
@@ -93,6 +89,26 @@ export const addUser: INodeProperties[] = [
 						return requestOptions;
 					}
 				],
+			},
+		},
+	},
+	{
+		displayName: 'Licenses Names or IDs',
+		name: 'licenses',
+		type: 'multiOptions',
+		description: 'Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
+		default: [],
+		displayOptions,
+		typeOptions: {
+			loadOptionsDependsOn: ['tenantFilter'],
+			loadOptionsMethod: 'getLicenseOptions',
+		},
+		routing: {
+			send: {
+				property: 'licenses.value',
+				propertyInDotNotation: true,
+				type: 'body',
+				value: "={{$value}}",
 			},
 		},
 	},

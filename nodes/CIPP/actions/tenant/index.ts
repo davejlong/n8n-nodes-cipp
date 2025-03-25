@@ -1,7 +1,5 @@
 import { INodeProperties } from "n8n-workflow";
 
-import { domains } from "./domains";
-
 export const description: INodeProperties[] = [
 	{
 		displayName: 'Operation',
@@ -28,8 +26,38 @@ export const description: INodeProperties[] = [
 					request: { url: "/ListDomains", }
 				},
 			},
+			{
+				name: 'Get Licenses',
+				value: 'getLicenses',
+				action: 'Get licenses',
+				routing: {
+					request: { url: "/ListLicenses", }
+				},
+			},
 		],
 		default: 'getAll',
 	},
-	...domains,
+	{
+		displayName: 'Tenant Name or ID',
+		name: 'tenantId',
+		displayOptions: {
+			show: {
+				resource: ['tenant'],
+				operation: ['getDomains', 'getLicenses'],
+			},
+		},
+		description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
+		type: 'options',
+		typeOptions: {
+			loadOptionsMethod: 'getTenantOptions',
+		},
+		routing: {
+			send: {
+				property: 'tenantFilter',
+				type: 'query',
+				value: "={{$value}}",
+			},
+		},
+		default: '',
+	},
 ]

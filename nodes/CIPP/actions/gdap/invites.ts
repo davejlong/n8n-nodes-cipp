@@ -51,10 +51,6 @@ export const invites: INodeProperties[] = [
 		type: 'multiOptions',
 		typeOptions: {
 			loadOptionsMethod: 'getGDAPRoleOptions',
-			loadOptionsDependsOn: ['includeBlank'],
-			loadOptionsParameters: {
-				includeBlank: false,
-			}
 		},
 		displayOptions: {
 			show: {

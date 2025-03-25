@@ -48,10 +48,6 @@ export const description: INodeProperties[] = [
 		type: 'options',
 		typeOptions: {
 			loadOptionsMethod: 'getTenantOptions',
-			loadOptionsDependsOn: ['includeBlank'],
-			loadOptionsParameters: {
-				includeBlank: false,
-			},
 		},
 		routing: {
 			send: {

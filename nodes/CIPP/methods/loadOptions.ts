@@ -13,5 +13,10 @@ export async function getDomainOptions(this: ILoadOptionsFunctions): Promise<INo
 	const tenantFilter = this.getCurrentNodeParameter('tenantFilter');
 	const options = await getLoadOptions.call(this, '/ListDomains', 'id', 'id', {tenantFilter: tenantFilter});
 	return options;
+}
 
+export async function getLicenseOptions(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const tenantFilter = this.getCurrentNodeParameter('tenantFilter');
+	const options = await getLoadOptions.call(this, '/ListLicenses', 'License', 'skuId', {tenantFilter: tenantFilter});
+	return options;
 }
