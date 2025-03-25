@@ -1,7 +1,9 @@
+/* eslint-disable n8n-nodes-base/node-filename-against-convention */
 import { INodeType, INodeTypeDescription } from "n8n-workflow";
 
-import { getTenantOptions } from "./methods/loadOptions";
+import { getGDAPRoleOptions, getTenantOptions } from "./methods/loadOptions";
 
+import * as gdap from './actions/gdap';
 import * as tenant from './actions/tenant';
 import * as user from './actions/user';
 
@@ -35,11 +37,13 @@ export class CIPP implements INodeType {
 				type: 'options',
 				noDataExpression: true,
 				options: [
+					{ name: 'GDAP', value: 'gdap' },
 					{ name: 'Tenant', value: 'tenant' },
 					{ name: 'User', value: 'user' },
 				],
 				default: 'tenant',
 			},
+			...gdap.description,
 			...tenant.description,
 			...user.description,
 		],
@@ -48,6 +52,7 @@ export class CIPP implements INodeType {
 	methods = {
 		loadOptions: {
 			getTenantOptions,
+			getGDAPRoleOptions,
 		}
 	}
 }
