@@ -15,6 +15,22 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
+### GDAP
+
+* Get GDAP Invites - List GDAP invites
+* Get GDAP Roles - List configured GDAP roles
+* Create GDAP Invite - Create new GDAP Invite
+
+### Tenants
+
+* Get Tenants - List tenants
+* Get Domains - List domains for a tenant
+* Get Licenses - List licenses for a tenant
+
+### Users
+
+* Get Users - List users for a tenant
+* Create User - Create a new user account
 
 ## Credentials
 
