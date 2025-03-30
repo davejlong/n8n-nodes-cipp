@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-cipp",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "n8n node to work with the CIPP API",
   "keywords": [
     "n8n-community-node-package",
@@ -39,10 +39,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/CippApi.credentials.js"
+      "dist/credentials/CIPPOAuth2Api.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/CIPP/Cipp.node.js"
+      "dist/nodes/CIPP/CIPP.node.js"
     ]
   },
   "devDependencies": {
