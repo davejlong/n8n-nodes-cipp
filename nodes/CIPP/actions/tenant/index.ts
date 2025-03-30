@@ -11,9 +11,17 @@ export const description: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Get Many',
-				value: 'getAll',
+				name: 'Get Tenants',
+				value: 'getTenants',
 				action: 'Get tenants',
+				routing: {
+					request: { url: "/ListTenants", },
+				},
+			},
+			{
+				name: 'Get Tenant',
+				value: 'getTenant',
+				action: 'Get tenant',
 				routing: {
 					request: { url: "/ListTenants", },
 				},
@@ -35,7 +43,7 @@ export const description: INodeProperties[] = [
 				},
 			},
 		],
-		default: 'getAll',
+		default: 'getTenants',
 	},
 	{
 		displayName: 'Tenant Name or ID',
@@ -43,7 +51,7 @@ export const description: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['tenant'],
-				operation: ['getDomains', 'getLicenses'],
+				operation: ['getTenant', 'getDomains', 'getLicenses'],
 			},
 		},
 		description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',

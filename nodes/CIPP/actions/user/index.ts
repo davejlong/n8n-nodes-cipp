@@ -52,7 +52,27 @@ export const description: INodeProperties[] = [
 		routing: {
 			send: {
 				property: 'tenantFilter',
-				type: 'body',
+				type: 'query',
+				value: "={{$value}}",
+			},
+		},
+		default: '',
+	},
+	{
+		displayName: 'Graph Filter',
+		name: 'graphFilter',
+		type: 'string',
+		displayOptions: {
+			show: {
+				resource: ['user'],
+				operation: ['getAll'],
+			},
+		},
+		description: 'Graph filter to apply to search',
+		routing: {
+			send: {
+				property: 'graphFilter',
+				type: 'query',
 				value: "={{$value}}",
 			},
 		},
