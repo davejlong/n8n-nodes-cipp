@@ -24,6 +24,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 ### Tenants
 
 * Get Tenants - List tenants
+* Get Tenant - Get information about a single tenant
 * Get Domains - List domains for a tenant
 * Get Licenses - List licenses for a tenant
 
