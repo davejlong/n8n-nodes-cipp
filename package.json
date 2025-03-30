@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-cipp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "n8n node to work with the CIPP API",
   "keywords": [
     "n8n-community-node-package",
