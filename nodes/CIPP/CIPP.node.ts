@@ -6,6 +6,7 @@ import { getDomainOptions, getGDAPRoleOptions, getLicenseOptions, getTenantOptio
 import * as gdap from './actions/gdap';
 import * as tenant from './actions/tenant';
 import * as user from './actions/user';
+import * as cipp from './actions/cipp';
 
 export class CIPP implements INodeType {
 	description: INodeTypeDescription = {
@@ -40,12 +41,14 @@ export class CIPP implements INodeType {
 					{ name: 'GDAP', value: 'gdap' },
 					{ name: 'Tenant', value: 'tenant' },
 					{ name: 'User', value: 'user' },
+					{ name: 'CIPP', value: 'cipp' },
 				],
 				default: 'tenant',
 			},
 			...gdap.description,
 			...tenant.description,
 			...user.description,
+			...cipp.description,
 		],
 	};
 
