@@ -15,6 +15,10 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
+### CIPP Core
+* Get Version - Get the current version of CIPP
+* Public Ping - Ping the CIPP instance to keep the application running
+
 ### GDAP
 
 * Get GDAP Invites - List GDAP invites
