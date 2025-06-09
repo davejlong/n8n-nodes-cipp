@@ -18,6 +18,14 @@ export const description: INodeProperties[] = [
 					request: { url: "/getversion", },
 				},
 			},
+			{
+				name: 'Public Ping',
+				value: 'publicPing',
+				action: 'Public ping',
+				routing: {
+					request: { url: "/publicping", },
+				},
+			},
 		],
 		default: 'getVersion',
 	}
