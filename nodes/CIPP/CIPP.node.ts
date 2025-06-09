@@ -29,7 +29,7 @@ export class CIPP implements INodeType {
 			}
 		],
 		requestDefaults: {
-			baseURL: "={{ $credentials.cippApiUrl }}/api"
+			baseURL: "={{ $credentials.cippApiUrl }}/api",
 		},
 		properties: [
 			{

@@ -17,7 +17,21 @@ export const description: INodeProperties[] = [
 				value: 'getAll',
 				action: 'Get users',
 				routing: {
-					request: { url: "/ListUsers", },
+					request: {
+						url: "/ListGraphRequest",
+						qs: {
+							endpoint: "users",
+							"$count": true,
+						},
+					},
+					output: {
+						postReceive: [
+							{
+								type: 'rootProperty',
+								properties: { property: 'Results' },
+							},
+						],
+					},
 				},
 			},
 			{
@@ -26,7 +40,6 @@ export const description: INodeProperties[] = [
 				action: 'Create user',
 				routing: {
 					request: {
-						// baseURL: 'https://eomglhueikotny6.m.pipedream.net',
 						url: '/AddUser',
 						method: 'POST'
 					}
@@ -78,5 +91,25 @@ export const description: INodeProperties[] = [
 		},
 		default: '',
 	},
+	// {
+	// 	displayName: 'Include Logon Details',
+	// 	name: 'logonDetails',
+	// 	type: 'boolean',
+	// 	displayOptions: {
+	// 		show: {
+	// 			resource: ['user'],
+	// 			operation: ['getAll'],
+	// 		},
+	// 	},
+	// 	routing: {
+	// 		send: {
+	// 			property: 'includeLogonDetails',
+	// 			type: 'query',
+	// 			value: "={{$value}}",
+	// 		},
+	// 	},
+	// 	description: 'Whether or not to include logon details (last logon date, etc.) with users',
+	// 	default: false,
+	// },
 	...addUser,
 ]
