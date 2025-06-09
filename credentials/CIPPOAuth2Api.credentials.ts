@@ -77,7 +77,7 @@ export class CIPPOAuth2Api implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: "={{$credentials.cippApiUrl}}/api",
-			url: '/ListLogs',
+			url: '/GetVersion',
 			method: 'GET',
 		}
 	}
