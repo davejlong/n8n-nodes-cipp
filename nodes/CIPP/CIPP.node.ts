@@ -3,6 +3,7 @@ import { INodeType, INodeTypeDescription } from "n8n-workflow";
 
 import { getDomainOptions, getGDAPRoleOptions, getLicenseOptions, getTenantOptions } from "./methods/loadOptions";
 
+import * as cipp from './actions/cipp';
 import * as gdap from './actions/gdap';
 import * as tenant from './actions/tenant';
 import * as user from './actions/user';
@@ -37,12 +38,14 @@ export class CIPP implements INodeType {
 				type: 'options',
 				noDataExpression: true,
 				options: [
+					{ name: 'CIPP', value: 'cipp' },
 					{ name: 'GDAP', value: 'gdap' },
 					{ name: 'Tenant', value: 'tenant' },
 					{ name: 'User', value: 'user' },
 				],
 				default: 'tenant',
 			},
+			...cipp.description,
 			...gdap.description,
 			...tenant.description,
 			...user.description,
